@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Make Tape — Procedure Text | Grade X</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+      background: #fdf8f0;
+      color: #1e2b2f;
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 2.5rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      padding: 2.5rem 2rem;
+      border: 1px solid #f0e3d0;
+    }
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #2b5e3b;
+      border-left: 8px solid #e6a448;
+      padding-left: 1.5rem;
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+    .subhead {
+      font-size: 1.1rem;
+      color: #5e6f6b;
+      margin-bottom: 2rem;
+      padding-left: 2.2rem;
+      font-style: italic;
+    }
+    h2 {
+      font-size: 1.7rem;
+      font-weight: 600;
+      margin-top: 2.8rem;
+      margin-bottom: 1.2rem;
+      color: #2b5e3b;
+      padding-bottom: 0.4rem;
+      border-bottom: 3px dashed #d9b382;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    h2 span {
+      background: #e6a448;
+      color: white;
+      font-size: 1.2rem;
+      border-radius: 50%;
+      width: 2.2rem;
+      height: 2.2rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-top: 1.6rem;
+      margin-bottom: 0.7rem;
+      color: #3a6b4b;
+    }
+    ul, ol {
+      padding-left: 2rem;
+      margin-bottom: 1.2rem;
+    }
+    li {
+      margin-bottom: 0.45rem;
+    }
+    p {
+      margin-bottom: 1rem;
+    }
+    .card {
+      background: #f9f4ea;
+      border-radius: 1.5rem;
+      padding: 1.5rem 2rem;
+      margin: 1.5rem 0;
+      border: 1px solid #eadbc8;
+    }
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.6rem 1.5rem;
+      background: white;
+      border-radius: 1.2rem;
+      padding: 1.2rem 1.8rem;
+      border: 1px solid #ddd0bc;
+    }
+    .vocab-item {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px dotted #ccc1ae;
+      padding: 0.35rem 0;
+    }
+    .vocab-item .en {
+      font-weight: 600;
+      color: #2b5e3b;
+    }
+    .vocab-item .id {
+      color: #7a5f3f;
+      font-style: italic;
+    }
+    .procedure-box {
+      background: #ffffff;
+      border: 2px solid #e6a448;
+      border-radius: 1.8rem;
+      padding: 1.8rem 2.2rem;
+      margin: 1.5rem 0;
+    }
+    .procedure-box h4 {
+      font-size: 1.4rem;
+      color: #2b5e3b;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .step-list {
+      list-style: none;
+      counter-reset: step-counter;
+      padding-left: 0;
+    }
+    .step-list li {
+      counter-increment: step-counter;
+      margin-bottom: 0.9rem;
+      padding-left: 2.8rem;
+      position: relative;
+    }
+    .step-list li::before {
+      content: counter(step-counter);
+      background: #e6a448;
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      width: 1.9rem;
+      height: 1.9rem;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      left: 0;
+      top: 0.1rem;
+    }
+    .quiz-item {
+      background: #f9f4ea;
+      border-radius: 1.2rem;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1rem;
+      border-left: 6px solid #e6a448;
+    }
+    .quiz-item p {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .quiz-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1.2rem;
+      margin-left: 0.5rem;
+    }
+    .quiz-options label {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+    .quiz-options input[type="radio"] {
+      accent-color: #2b5e3b;
+      width: 1.1rem;
+      height: 1.1rem;
+      cursor: pointer;
+    }
+    .btn-check {
+      background: #2b5e3b;
+      color: white;
+      border: none;
+      padding: 0.7rem 1.8rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin: 1rem 0;
+      box-shadow: 0 6px 12px rgba(43, 94, 59, 0.2);
+    }
+    .btn-check:hover {
+      background: #1e4629;
+      transform: translateY(-2px);
+    }
+    .btn-check:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 6px rgba(43, 94, 59, 0.2);
+    }
+    .feedback {
+      margin-top: 0.8rem;
+      padding: 0.8rem 1.2rem;
+      border-radius: 1rem;
+      font-weight: 500;
+      display: none;
+    }
+    .feedback.correct {
+      background: #d9f0e1;
+      color: #1e5e3b;
+      display: block;
+    }
+    .feedback.incorrect {
+      background: #fde4d8;
+      color: #a14a2f;
+      display: block;
+    }
+    .answer-key {
+      background: #f0f0f0;
+      border-radius: 1.2rem;
+      padding: 1.2rem 2rem;
+      margin-top: 1.5rem;
+      border: 1px solid #d0d0d0;
+      font-size: 0.95rem;
+    }
+    .answer-key summary {
+      font-weight: 700;
+      color: #2b5e3b;
+      cursor: pointer;
+      padding: 0.3rem 0;
+    }
+    .speaking-card {
+      background: #e8f0e8;
+      border-radius: 1.2rem;
+      padding: 1.2rem 2rem;
+      margin: 1rem 0;
+      border-left: 6px solid #2b5e3b;
+    }
+    .badge {
+      display: inline-block;
+      background: #e6a448;
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.2rem 0.9rem;
+      border-radius: 2rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .footer-note {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 2px dashed #ddd0bc;
+      font-size: 0.9rem;
+      color: #7a7a6a;
+      text-align: center;
+    }
+    .inline-id {
+      color: #7a5f3f;
+      font-style: italic;
+      font-size: 0.92rem;
+    }
+    .text-hl {
+      background: #f7e9d7;
+      padding: 0.1rem 0.4rem;
+      border-radius: 0.4rem;
+      font-weight: 600;
+      color: #3a5e3b;
+    }
+    @media (max-width: 600px) {
+      .container { padding: 1.5rem 1rem; }
+      h1 { font-size: 1.8rem; padding-left: 1rem; }
+      .subhead { padding-left: 1.2rem; }
+      .procedure-box { padding: 1.2rem; }
+      .vocab-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <h1>🌿 How to Make Tape<br><span style="font-size:1.5rem; color:#5e6f6b; font-weight:400;">(Indonesian Fermented Cassava)</span></h1>
+  <div class="subhead">Procedure Text · Grade X SMA · Fase E</div>
+
+  <!-- ====== LEARNING OBJECTIVES ====== -->
+  <h2><span>🎯</span> Learning Objectives</h2>
+  <ul>
+    <li>Students are able to understand the purpose of a procedure text.</li>
+    <li>Students are able to identify the generic structure of a procedure text.</li>
+    <li>Students are able to recognize imperative sentences and sequencing words.</li>
+    <li>Students are able to explain the process of making traditional Indonesian tape in English.</li>
+  </ul>
+
+  <!-- ====== INTRODUCTION ====== -->
+  <h2><span>📖</span> Introduction</h2>
+  <p><strong>Tape</strong> (or <em>tape singkong</em>) is a traditional Indonesian fermented food made from cassava. It has a sweet, slightly tangy flavor and a soft, chewy texture. Tape is widely consumed as a snack or dessert, especially in Java and Sumatra.</p>
+  <p>Making tape is a simple process that involves peeling, steaming, cooling, and fermenting cassava with yeast (ragi). The fermentation process gives tape its distinctive taste and aroma. In Indonesian culture, tape is often served during family gatherings and celebrations, and it reflects the richness of local food traditions.</p>
+  <div class="card">
+    <p><strong>Main ingredients &amp; equipment:</strong> Cassava (singkong), yeast/ragi, banana leaves (daun pisang), steamer, container, and clean water.</p>
+  </div>
+
+  <!-- ====== VOCABULARY ====== -->
+  <h2><span>🔤</span> Vocabulary Building</h2>
+  <div class="vocab-grid">
+    <div class="vocab-item"><span class="en">Cassava</span><span class="id">Singkong</span></div>
+    <div class="vocab-item"><span class="en">Fermentation</span><span class="id">Fermentasi</span></div>
+    <div class="vocab-item"><span class="en">Yeast</span><span class="id">Ragi</span></div>
+    <div class="vocab-item"><span class="en">Peel</span><span class="id">Mengupas</span></div>
+    <div class="vocab-item"><span class="en">Wash</span><span class="id">Mencuci</span></div>
+    <div class="vocab-item"><span class="en">Steam</span><span class="id">Mengukus</span></div>
+    <div class="vocab-item"><span class="en">Cool</span><span class="id">Mendinginkan</span></div>
+    <div class="vocab-item"><span class="en">Sprinkle</span><span class="id">Menaburkan</span></div>
+    <div class="vocab-item"><span class="en">Container</span><span class="id">Wadah</span></div>
+    <div class="vocab-item"><span class="en">Banana leaf</span><span class="id">Daun pisang</span></div>
+    <div class="vocab-item"><span class="en">Wrap</span><span class="id">Membungkus</span></div>
+    <div class="vocab-item"><span class="en">Store</span><span class="id">Menyimpan</span></div>
+    <div class="vocab-item"><span class="en">Soft</span><span class="id">Lunak</span></div>
+    <div class="vocab-item"><span class="en">Sweet</span><span class="id">Manis</span></div>
+    <div class="vocab-item"><span class="en">Traditional food</span><span class="id">Makanan tradisional</span></div>
+  </div>
+
+  <!-- ====== PROCEDURE TEXT ====== -->
+  <h2><span>📝</span> Procedure Text</h2>
+  <div class="procedure-box">
+    <h4>🍠 How to Make Tape from Cassava</h4>
+    <p><strong>Goal:</strong> To explain how to make traditional Indonesian tape (fermented cassava).</p>
+    <p><strong>Materials and ingredients:</strong></p>
+    <ul>
+      <li>1 kg cassava (singkong) — <span class="inline-id">singkong</span></li>
+      <li>2 teaspoons yeast / ragi — <span class="inline-id">ragi</span></li>
+      <li>Clean water — <span class="inline-id">air bersih</span></li>
+    </ul>
+    <p><strong>Equipment:</strong></p>
+    <ul>
+      <li>Steamer — <span class="inline-id">alat pengukus</span></li>
+      <li>Container — <span class="inline-id">wadah</span></li>
+      <li>Banana leaves — <span class="inline-id">daun pisang</span></li>
+      <li>Knife — <span class="inline-id">pisau</span></li>
+    </ul>
+    <p><strong>Steps:</strong></p>
+    <ol class="step-list">
+      <li><strong>First,</strong> peel the cassava and wash it with clean water. <span class="inline-id">(Kupas singkong dan cuci dengan air bersih.)</span></li>
+      <li><strong>Next,</strong> cut the cassava into small pieces and steam them for about 20–30 minutes until soft.</li>
+      <li><strong>Then,</strong> cool the steamed cassava at room temperature.</li>
+      <li><strong>After that,</strong> sprinkle the yeast evenly over the cassava and mix well.</li>
+      <li><strong>Next,</strong> wrap the cassava in banana leaves and put it in a clean container.</li>
+      <li><strong>Finally,</strong> store the container in a warm, dark place for 2–3 days to allow fermentation.</li>
+    </ol>
+    <p><strong>Closing statement:</strong> Now your traditional Indonesian tape is ready to enjoy! Remember to always keep the equipment clean and use food-safe containers for a safe and delicious result.</p>
+    <p style="margin-top:0.8rem; background:#f9f4ea; padding:0.6rem 1rem; border-radius:1rem; font-size:0.92rem;"><strong>🧼 Food-safety note:</strong> Always wash your hands and tools before cooking. Use clean, food-safe containers and maintain proper fermentation conditions to avoid contamination.</p>
+  </div>
+
+  <!-- ====== LANGUAGE FEATURES ====== -->
+  <h2><span>🔧</span> Language Features</h2>
+  <ul>
+    <li><strong>Imperative sentences:</strong> <em>Peel the cassava. Wash it with clean water. Sprinkle the yeast.</em></li>
+    <li><strong>Simple present tense:</strong> <em>The process takes two days. Tape has a sweet taste.</em></li>
+    <li><strong>Action verbs:</strong> peel, wash, steam, cool, sprinkle, wrap, store.</li>
+    <li><strong>Sequencing words:</strong> First, Next, Then, After that, Finally.</li>
+    <li><strong>Adverbs of manner and time:</strong> evenly, carefully, for 2–3 days, at room temperature.</li>
+  </ul>
+
+  <!-- ====== READING COMPREHENSION ====== -->
+  <h2><span>📚</span> Reading Comprehension</h2>
+  <p>Choose the correct answer (A–E) based on the procedure text above.</p>
+
+  <div class="quiz-item" id="q1">
+    <p>1. What is the purpose of the text?</p>
+    <div class="quiz-options">
+      <label><input type="radio" name="q1" value="A"> A. To describe cassava</label>
+      <label><input type="radio" name="q1" value="B"> B. To explain how to make tape</label>
+      <label><input type="radio" name="q1" value="C"> C. To tell a story about tape</label>
+      <label><input type="radio" name="q1" value="D"> D. To persuade people to eat tape</label>
+      <label><input type="radio" name="q1" value="E"> E. To report the history of tape</label>
+    </div>
+  </div>
+
+  <div class="quiz-item" id="q2">
+    <p>2. What is the main ingredient of tape?</p>
+    <div class="quiz-options">
+      <label><input type="radio" name="q2" value="A"> A. Rice</label>
+      <label><input type="radio" name="q2" value="B"> B. Cassava</label>
+      <label><input type="radio" name="q2" value="C"> C. Corn</label>
+      <label><input type="radio" name="q2" value="D"> D. Potato</label>
+      <label><input type="radio" name="q2" value="E"> E. Wheat</label>
+    </div>
+  </div>
+
+  <div class="quiz-item" id="q3">
+    <p>3. What is the function of yeast in making tape?</p>
+    <div class="quiz-options">
+      <label><input type="radio" name="q3" value="A"> A. To make it sweet</label>
+      <label><input type="radio" name="q3" value="B"> B. To make it soft</label>
+      <label><input type="radio" name="q3" value="C"> C. To ferment the cassava</label>
+      <label><input type="radio" name="q3" value="D"> D. To color the tape</label>
+      <label><input type="radio" name="q3" value="E"> E. To make it salty</label>
+    </div>
+  </div>
+
+  <div class="quiz-item" id="q4">
+    <p>4. How long should the cassava be steamed?</p>
+    <div class="quiz-options">
+      <label><input type="radio" name="q4" value="A"> A. 5–10 minutes</label>
+      <label><input type="radio" name="q4" value="B"> B. 20–30 minutes</label>
+      <label><input type="radio" name="q4" value="C"> C. 1 hour</label>
+      <label><input type="radio" name="q4" value="D"> D. 2 hours</label>
+      <label><input type="radio" name="q4" value="E"> E. 3 days</label>
+    </div>
+  </div>
+
+  <div class="quiz-item" id="q5">
+    <p>5. What should you do after steaming the cassava?</p>
+    <div class="quiz-options">
+      <label><input type="radio" name="q5" value="A"> A. Fry it</label>
+      <label><input type="radio" name="q5" value="B"> B. Cool it</label>
+      <label><input type="radio" name="q5" value="C"> C. Boil it</label>
+      <label><input type="radio" name="q5" value="D"> D. Eat it immediately</label>
+      <label><input type="radio" name="q5" value="E"> E. Throw it away</label>
+    </div>
+  </div>
+
+  <div class="quiz-item" id="q6">
+    <p>6. The word "sprinkle" in the text means …</p>
+    <div class="quiz-options">
+      <label><input type="radio" name="q6" value="A"> A. to pour water</label>
+      <label><input type="radio" name="q6" value="B"> B. to scatter or spread</label>
+      <label><input type="radio" name="q6" value="C"> C. to stir quickly</label>
+      <label><input type="radio" name="q6" value="D"> D. to cut into pieces</label>
+      <label><input type="radio" name="q6" value="E"> E. to wrap carefully</label>
+    </div>
+  </div>
+
+  <div class="quiz-item" id="q7">
+    <p>7. Which sentence is an imperative sentence?</p>
+    <div class="quiz-options">
+      <label><input type="radio" name="q7" value="A"> A. The cassava is soft.</label>
+      <label><input type="radio" name="q7" value="B"> B. Tape is a traditional food.</label>
+      <label><input type="radio" name="q7" value="C"> C. Peel the cassava.</label>
+      <label><input type="radio" name="q7" value="D"> D. I like tape very much.</label>
+      <label><input type="radio" name="q7" value="E"> E. The yeast is brown.</label>
+    </div>
+  </div>
+
+  <div class="quiz-item" id="q8">
+    <p>8. What is the correct generic structure of the text?</p>
+    <div class="quiz-options">
+      <label><input type="radio" name="q8" value="A"> A. Goal → Materials → Steps</label>
+      <label><input type="radio" name="q8" value="B"> B. Orientation → Complication → Resolution</label>
+      <label><input type="radio" name="q8" value="C"> C. Thesis → Arguments → Recommendation</label>
+      <label><input type="radio" name="q8" value="D"> D. Description → Identification</label>
+      <label><input type="radio" name="q8" value="E"> E. Abstract → Introduction → Conclusion</label>
+    </div>
+  </div>
+
+  <div class="quiz-item" id="q9">
+    <p>9. Why should the container be stored in a warm, dark place?</p>
+    <div class="quiz-options">
+      <label><input type="radio" name="q9" value="A"> A. To make it colder</label>
+      <label><input type="radio" name="q9" value="B"> B. To help the fermentation process</label>
+      <label><input type="radio" name="q9" value="C"> C. To dry the cassava</label>
+      <label><input type="radio" name="q9" value="D"> D. To keep it fresh</label>
+      <label><input type="radio" name="q9" value="E"> E. To make it salty</label>
+    </div>
+  </div>
+
+  <div class="quiz-item" id="q10">
+    <p>10. What is the closing statement of the text?</p>
+    <div class="quiz-options">
+      <label><input type="radio" name="q10" value="A"> A. First, peel the cassava.</label>
+      <label><input type="radio" name="q10" value="B"> B. Now your traditional Indonesian tape is ready to enjoy!</label>
+      <label><input type="radio" name="q10" value="C"> C. Cassava is a root vegetable.</label>
+      <label><input type="radio" name="q10" value="D"> D. Tape is very sweet.</label>
+      <label><input type="radio" name="q10" value="E"> E. Fermentation takes two days.</label>
+    </div>
+  </div>
+
+  <button class="btn-check" id="checkQuiz">✅ Check Answers</button>
+  <div id="quizFeedback" class="feedback"></div>
+
+  <details class="answer-key">
+    <summary>📌 Answer Key &amp; Explanations</summary>
+    <ul style="margin-top:0.8rem;">
+      <li><strong>1. B</strong> — The text explains how to make tape (procedure).</li>
+      <li><strong>2. B</strong> — Cassava (singkong) is the main ingredient.</li>
+      <li><strong>3. C</strong> — Yeast is used to ferment the cassava.</li>
+      <li><strong>4. B</strong> — The text says "steam for about 20–30 minutes".</li>
+      <li><strong>5. B</strong> — After steaming, you must cool the cassava.</li>
+      <li><strong>6. B</strong> — Sprinkle means to scatter or spread (menaburkan).</li>
+      <li><strong>7. C</strong> — "Peel the cassava" is an imperative sentence.</li>
+      <li><strong>8. A</strong> — Procedure text structure: Goal → Materials → Steps.</li>
+      <li><strong>9. B</strong> — Warm, dark conditions help fermentation.</li>
+      <li><strong>10. B</strong> — The closing statement invites the reader to enjoy the tape.</li>
+    </ul>
+  </details>
+
+  <!-- ====== WRITING PRACTICE ====== -->
+  <h2><span>✍️</span> Writing Practice</h2>
+  <h3>Activity A — Arrange the jumbled steps</h3>
+  <p>Put these steps in the correct order (1–6).</p>
+  <ul>
+    <li>___ Sprinkle yeast evenly over the cassava.</li>
+    <li>___ Peel and wash the cassava.</li>
+    <li>___ Store in a warm, dark place for 2–3 days.</li>
+    <li>___ Steam the cassava until soft.</li>
+    <li>___ Wrap the cassava in banana leaves.</li>
+    <li>___ Cool the steamed cassava.</li>
+  </ul>
+  <details class="answer-key" style="margin-top:0.5rem;">
+    <summary>Answer</summary>
+    <p style="margin-top:0.5rem;">2, 1, 6, 3, 5, 4 — Correct order: <br>1. Peel and wash → 2. Steam → 3. Cool → 4. Sprinkle yeast → 5. Wrap → 6. Store.</p>
+  </details>
+
+  <h3>Activity B — Complete the sentences</h3>
+  <p>Fill in the blanks with <em>first, next, then, after that, finally</em>.</p>
+  <ol style="margin-top:0.5rem;">
+    <li>______, peel the cassava and wash it well.</li>
+    <li>______, steam the cassava for 20–30 minutes.</li>
+    <li>______, cool it at room temperature.</li>
+    <li>______, sprinkle the yeast and mix well.</li>
+    <li>______, store it for 2–3 days.</li>
+  </ol>
+  <details class="answer-key">
+    <summary>Answer</summary>
+    <p style="margin-top:0.5rem;">1. First, 2. Next, 3. Then, 4. After that, 5. Finally.</p>
+  </details>
+
+  <!-- ====== SPEAKING PRACTICE ====== -->
+  <h2><span>🗣️</span> Speaking Practice</h2>
+  <div class="speaking-card">
+    <p><strong>Presentation Activity:</strong> In pairs or small groups, prepare a short presentation (2–3 minutes) explaining <strong>how to make traditional Indonesian tape</strong> in English. Use the procedure text as your guide. Include the ingredients, equipment, steps, and a closing statement. Practice using sequencing words and imperative sentences. Present in front of the class.</p>
+  </div>
+
+  <!-- ====== LKPD SUMMARY ====== -->
+  <h2><span>📋</span> Student Worksheet (LKPD) Activities</h2>
+  <div class="card">
+    <p><span class="badge">Activity 1</span> <strong>Observing</strong> — Look at pictures of cassava, yeast, banana leaves, and a steamer. Discuss what they are used for.</p>
+    <p><span class="badge">Activity 2</span> <strong>Vocabulary</strong> — Match the 15 English words with their Indonesian meanings (see vocabulary section).</p>
+    <p><span class="badge">Activity 3</span> <strong>Reading</strong> — Read the procedure text and identify its generic structure (Goal, Materials, Steps).</p>
+    <p><span class="badge">Activity 4</span> <strong>Analyzing</strong> — Find 5 imperative sentences, 5 action verbs, and 5 sequencing words in the text.</p>
+    <p><span class="badge">Activity 5</span> <strong>Ordering</strong> — Arrange the 6 jumbled steps into the correct sequence (see Writing Practice A).</p>
+    <p><span class="badge">Activity 6</span> <strong>Writing</strong> — Complete a procedure text using appropriate verbs and sequencing words (see Writing Practice B).</p>
+    <p><span class="badge">Activity 7</span> <strong>Speaking</strong> — Present the process of making tape in front of the class (see Speaking Practice).</p>
+    <p><span class="badge">Activity 8</span> <strong>Reflection</strong> — Write what you have learned from this lesson in your notebook.</p>
+  </div>
+
+  <!-- ====== ASSESSMENT CRITERIA ====== -->
+  <h2><span>📊</span> Assessment Criteria</h2>
+  <ul>
+    <li><strong>Reading Comprehension:</strong> Accuracy in answering the 10 multiple-choice questions.</li>
+    <li><strong>Writing:</strong> Correct use of imperative sentences, sequencing words, and logical order.</li>
+    <li><strong>Speaking:</strong> Fluency, pronunciation, and completeness of the presentation.</li>
+    <li><strong>Vocabulary:</strong> Ability to match English words with Indonesian meanings.</li>
+  </ul>
+
+  <div class="footer-note">
+    🌱 Fase E · Kelas X SMA · Procedure Text · Traditional Indonesian Food
+  </div>
+
+</div>
+
+<script>
+  (function() {
+    const answers = {
+      q1: 'B', q2: 'B', q3: 'C', q4: 'B', q5: 'B',
+      q6: 'B', q7: 'C', q8: 'A', q9: 'B', q10: 'B'
+    };
+
+    const checkBtn = document.getElementById('checkQuiz');
+    const feedbackDiv = document.getElementById('quizFeedback');
+
+    checkBtn.addEventListener('click', function() {
+      let correctCount = 0;
+      let total = 10;
+      let allAnswered = true;
+
+      for (let i = 1; i <= 10; i++) {
+        const qName = 'q' + i;
+        const selected = document.querySelector(`input[name="${qName}"]:checked`);
+        if (!selected) {
+          allAnswered = false;
+          continue;
+        }
+        if (selected.value === answers[qName]) {
+          correctCount++;
+        }
+      }
+
+      if (!allAnswered) {
+        feedbackDiv.className = 'feedback incorrect';
+        feedbackDiv.textContent = '⚠️ Please answer all 10 questions before checking.';
+        return;
+      }
+
+      if (correctCount === total) {
+        feedbackDiv.className = 'feedback correct';
+        feedbackDiv.textContent = `🎉 Excellent! You got ${correctCount}/${total} correct. Perfect score!`;
+      } else {
+        feedbackDiv.className = 'feedback incorrect';
+        feedbackDiv.textContent = `📝 You got ${correctCount}/${total} correct. Review the text and try again!`;
+      }
+
+      // Highlight correct/incorrect per question (optional visual)
+      for (let i = 1; i <= 10; i++) {
+        const qName = 'q' + i;
+        const quizDiv = document.getElementById(qName);
+        if (!quizDiv) continue;
+        const selected = document.querySelector(`input[name="${qName}"]:checked`);
+        if (selected) {
+          if (selected.value === answers[qName]) {
+            quizDiv.style.borderLeftColor = '#2b8c4b';
+            quizDiv.style.background = '#f0f9f0';
+          } else {
+            quizDiv.style.borderLeftColor = '#c94a2f';
+            quizDiv.style.background = '#fef0ec';
+          }
+        }
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>
